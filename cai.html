@@ -6,8 +6,28 @@
         <meta name="format-detection" content="telephone=no">
         <title>cai</title>
         <script src="deps/zepto.min.js"></script>
+        <link href="src/css/reset.css" type="text/css" rel="stylesheet"/>
+        <link href="src/css/dian.css" type="text/css" rel="stylesheet"/>
     </head>
     <body>
-
+        <section id="carousel">
+            <ul class="carousel-inner">
+                <li class="carousel-active">
+                    <img src="http://dummyimage.com/200x150/ccc/fff" />
+                </li>
+                <li>
+                    <img src="http://dummyimage.com/200x150/000/fff" />
+                </li>
+                <li>
+                    <img src="http://dummyimage.com/200x150/000/fff" />
+                </li>
+            </ul>
+        </section>
+        <script>
+            $('#carousel').on('swipe', function() {
+                var activeLi = $('.carousel-active');
+                console.log(activeLi);
+            });
+        </script>
     </body>
 </html>
