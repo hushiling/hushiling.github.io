@@ -34,15 +34,10 @@
             $('.carousel-inner li').each(function(index, li) {
                 $(li).data('data-index', index);
             });
+
             var inner = $('.carousel-inner');
-            $('#carousel li').on('click', function(event) {
-                var target = $(this);
-                if(!(target.hasClass('carousel-prev') || target.hasClass('carousel-next'))) {
-                    return;
-                }
 
-                var active = $('.carousel-active');
-
+            function swipe(target, active) {
                 var index = target.data('data-index');
                 index = parseInt(index);
                 var currentIndex = active.data('data-index');
@@ -71,10 +66,32 @@
                     active.next().next().removeClass();
                 }
 
+            };
+
+            $('#carousel li').on('click', function(event) {
+                var target = $(this);
+                if(!(target.hasClass('carousel-prev') || target.hasClass('carousel-next'))) {
+                    return;
+                }
+                var active = $('.carousel-active');
+                swipe(target, active);
             });
 
-            $('#carousel').on('swipe', function(event) {
-                alert(event);
+            $('#carousel').on('swipeLeft', function(event) {
+                var active = $('.carousel-active');
+                var target = active.next();
+                if(target.length == 0) {
+                    return;
+                }
+                swipe(target, active);
+            });
+            $('#carousel').on('swipeRight', function(event) {
+                var active = $('.carousel-active');
+                var target = active.prev();
+                if(target.length == 0) {
+                    return;
+                }
+                swipe(target, active);
             });
         </script>
     </body>
