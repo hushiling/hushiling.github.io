@@ -1,28 +1,99 @@
+body {
+    font-size: 14px;
+    overflow: hidden;
+}
+
+[draggable] {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-user-drag: element;
+}
+
+
 #carousel {
-    width: 320px;
     overflow: hidden;
     -webkit-mask-image: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 5%, rgba(0,0,0,1) 95%, rgba(0,0,0,0) 100%);
     position: relative;
+    width: 320px;
+    margin: auto;
 }
 
 #carousel ul{
     position: relative;
-    left: 0;
-    width: 5000px;
     overflow: hidden;
+    width: 320px;
+    height: 150px;
 }
 
 #carousel li {
+    width: 200px;
+    height: 150px;
+    overflow: hidden;
+    position: absolute;
     float: left;
-    opacity: 0.7;
+    margin-left: -1px;
+    display: none;
     -webkit-backface-visibility: hidden;
     -webkit-transform: scale(0.75);
     -moz-transform: scale(0.75);
     -ms-transform: scale(0.75);
     -o-transform: scale(0.75);
     transform: scale(0.75);
-    -webkit-transition: -webkit-transform cubic-bezier(0.33, 0.66, 0.66, 1) 0.25s, opacity ease-out 0.25s;
-    -moz-transition-timing-function: -moz-transform cubic-bezier(0.33, 0.66, 0.66, 1) 0.25s, opacity ease-out 0.25s;
-    -o-transition-timing-function: -o-transform cubic-bezier(0.33, 0.66, 0.66, 1) 0.25s, opacity ease-out 0.25s;
-    transition-timing-function: transform cubic-bezier(0.33, 0.66, 0.66, 1) 0.25s, opacity ease-out 0.25s;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+li img {
+    display: block;
+}
+
+#carousel li.carousel-active {
+    display: block;
+    left: 60px;
+    z-index: 100;
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+}
+
+#carousel li.carousel-first {
+    display: block;
+    left: -200px;
+}
+#carousel li.carousel-prev {
+    display: block;
+    left: 10px;
+}
+#carousel li.carousel-next {
+    display: block;
+    right: 10px;
+}
+#carousel li.carousel-last {
+    display: block;
+    right: -200px;
+    visibility: hidden;
+}
+
+/* 用户点的菜的容器 */
+.food-wrapper {
+    margin: 20px auto;
+    width: 280px;
+    min-height: 200px;
+    border: 1px solid #000;
+}
+
+.food-drag-over {
+    border: 1px dashed #000;
+}
+
+.food-none {
+    text-align: center;
+    margin: 50px auto;
 }
