@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <meta name="format-detection" content="telephone=no">
+        <title>农家小炒肉</title>
+        <script src="deps/zepto.min.js"></script>
+        <link href="src/css/reset.css" type="text/css" rel="stylesheet"/>
+        <link href="src/css/detail.css" type="text/css" rel="stylesheet"/>
+    </head>
+    <body>
+        <section class="food-image-wrapper">
+            <div class="food-image">
+                <img src="http://dummyimage.com/250x188/000/fff" />
+            </div>
+            <div class="shadow"></div>
+        </section>
+
+        <section class="info basic-info clearfix">
+            <div class="info-name">
+                <div class="basic-info-title">
+                    菜名
+                </div>
+                <div class="basic-info-text">
+                    农家小炒肉
+                </div>
+            </div>
+            <div class="info-wx-price">
+                <div class="basic-info-title">
+                    微信价
+                </div>
+                <div class="basic-info-text">
+                    <strong>18元</strong>
+                </div>
+            </div>
+            <div class="info-price">
+                <div class="basic-info-title">
+                    原价
+                </div>
+                <div class="basic-info-text">
+                    21元
+                </div>
+            </div>
+        </section>
+
+        <section class="info info-material">
+            <h3>原材料</h3>
+            <div class="info-material-text">
+                洞庭湖有机鱼头，泡菜、泡椒、鱼头肉
+            </div>
+        </section>
+
+        <section class="info info-detail">
+            <h3>细节介绍</h3>
+            <div class="info-detail-text">
+                鱼头的鲜香被尽量保留在肉质之内，姜椒的味道又恰到好处地渗入到鱼肉中，鱼头糯软，肥而不腻，咸鲜中辣。入口细嫩晶莹，有着温文尔雅的辣味。
+            </div>
+        </section>
+
+        <div class="favo-wrapper">
+            <div class="favo">
+                <div class="favo-btn">
+                    赞一下<em>（<span>265</span>）</em>
+                </div>
+            </div>
+        </div>
+        <script>
+            $('.favo').click(function() {
+                var btn = $(this);
+                // TODO 
+                setTimeout(function() {
+                    var width = btn.width();
+                    var height = btn.height();
+
+                    var position = {
+                        top: height / 2 - 7,
+                        left: width / 2 - 8
+                    };
+
+                    var dom = $('<div class="favo-tip-wrapper"><div class="favo-tip">+1</div></div>')
+                        .css('top', position.top + 'px')
+                        .css('left', position.left + 'px');
+                    dom.appendTo(btn);
+
+                    setTimeout(function() {
+                        dom.addClass('favo-move');
+                        setTimeout(function() {
+                            var num = parseInt($('.favo span').html());
+                            if(!(num >= 0)) {
+                                num = 0;
+                            }
+                            num++;
+                            $('.favo span').html(num)
+                        }, 500);
+                    }, 10);
+                }, 100);
+            });
+        </script>
+    </body>
+</html>

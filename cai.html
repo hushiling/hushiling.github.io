@@ -10,33 +10,65 @@
         <link href="src/css/dian.css" type="text/css" rel="stylesheet"/>
     </head>
     <body>
-        <section id="carousel">
-            <ul class="carousel-inner">
-                <li class="carousel-active" draggable="true" data-id="1">
-                    <img src="http://dummyimage.com/200x150/888/fff" />
-                </li>
-                <li class="carousel-next" draggable="true" style="">
-                    <img src="http://dummyimage.com/200x150/888/fff" />
-                </li>
-                <li class="" draggable="true">
-                    <img src="http://dummyimage.com/200x150/ccc/fff" />
-                </li>
-                <li draggable="true">
-                    <img src="http://dummyimage.com/200x150/000/fff" />
-                </li>
-                <li draggable="true">
-                    <img src="http://dummyimage.com/200x150/888/fff" />
-                </li>
-            </ul>
+        <section class="content-top">
+            <article id="carousel">
+                <ul class="carousel-inner">
+                    <li class="carousel-active" draggable="true" data-id="1" data-price="35" data-name="农家小炒肉">
+                        <img src="http://dummyimage.com/212x159/888/fff" />
+                    </li>
+                    <li class="carousel-next" draggable="true" data-price="18" data-name="香干盖饭">
+                        <img src="http://dummyimage.com/212x159/888/fff" />
+                    </li>
+                    <li class="" draggable="true">
+                        <img src="http://dummyimage.com/212x159/ccc/fff" />
+                    </li>
+                    <li draggable="true">
+                        <img src="http://dummyimage.com/212x159/000/fff" />
+                    </li>
+                    <li draggable="true">
+                        <img src="http://dummyimage.com/212x159/888/fff" />
+                    </li>
+                </ul>
+            </article>
+            <div class="carousel-shadow"></div>
+        </section>
+        <section class="content-middle">
+            <article class="info">
+                <div class="info-tip">
+                    <b></b>
+                    <div class="info-tip-left"></div>
+                    <div class="info-tip-content">
+                        <div class="info-name"> 农家小炒肉</div>
+                        <div class="info-price">价格：<strong>35</strong>元</div>
+                    </div>
+                    <div class="info-tip-right"></div>
+                </div>
+                <div class="pick-btn-wrapper">
+                    <button class="pick-btn">来一份</button>
+                </div>
+            </article>
+        </section>
+        <section class="content-bottom">
+            <article class="food-list-wrapper">
+                <div class="food-tape"><b></b></div>
+                <div class="food-container">
+                    <div class="food-list"></div>
+                    <button class="submit-btn">提交订单</button>
+                </div>
+            </article>
+            <div class="food-list-shadow"></div>
         </section>
         <script>
-            var x = 320 / 2 - 200 / 2;
             $('.carousel-inner li').each(function(index, li) {
                 $(li).data('data-index', index);
             });
 
             var inner = $('.carousel-inner');
+            var offset = 74;
 
+            /**
+             * 处理滑动
+             */
             function swipe(target, active) {
                 var index = target.data('data-index');
                 index = parseInt(index);
@@ -48,7 +80,7 @@
 
                 if(index > currentIndex) {
                     // 后面一张图片
-                    inner.css('-webkit-transform', 'translate3d(' + (left - 50) + 'px,0,0)');
+                    inner.css('-webkit-transform', 'translate3d(' + (left - offset) + 'px,0,0)');
                     target.removeClass().addClass('carousel-active');
                     target.next().removeClass().addClass('carousel-next');
                     target.next().next().removeClass().addClass('carousel-last');
@@ -57,7 +89,7 @@
                     active.prev().prev().removeClass();
                 } else {
                     // 前面一张图片
-                    inner.css('-webkit-transform', 'translate3d(' + (left + 50) + 'px,0,0)');
+                    inner.css('-webkit-transform', 'translate3d(' + (left + offset) + 'px,0,0)');
                     target.removeClass().addClass('carousel-active');
                     target.prev().removeClass().addClass('carousel-prev');
                     target.prev().prev().removeClass().addClass('carousel-fisrst');
