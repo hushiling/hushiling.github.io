@@ -13,19 +13,19 @@
         <section class="content-top">
             <article id="carousel">
                 <ul class="carousel-inner">
-                    <li class="carousel-active" draggable="true" data-id="1" data-price="35" data-name="农家小炒肉">
+                    <li class="carousel-active" data-id="1" data-price="35" data-name="农家小炒肉">
                         <img src="http://dummyimage.com/212x159/888/fff" />
                     </li>
-                    <li class="carousel-next" draggable="true" data-price="18" data-name="香干盖饭">
+                    <li class="carousel-next" data-price="18" data-name="香干盖饭">
                         <img src="http://dummyimage.com/212x159/888/fff" />
                     </li>
-                    <li class="" draggable="true">
+                    <li data-price="20" data-name="锅塌豆腐">
                         <img src="http://dummyimage.com/212x159/ccc/fff" />
                     </li>
-                    <li draggable="true">
+                    <li data-price="100" data-name="这个菜的名字很长">
                         <img src="http://dummyimage.com/212x159/000/fff" />
                     </li>
-                    <li draggable="true">
+                    <li>
                         <img src="http://dummyimage.com/212x159/888/fff" />
                     </li>
                 </ul>
@@ -52,79 +52,15 @@
             <article class="food-list-wrapper">
                 <div class="food-tape"><b></b></div>
                 <div class="food-container">
-                    <div class="food-list"></div>
-                    <button class="submit-btn">提交订单</button>
+                    <div class="food-list clearfix">
+                        <div class="food-none">亲，来一份嘛~</div>
+                        <div class="foods-info"></div>
+                    </div>
+                    <button class="submit-btn" style="display:none">提交订单</button>
                 </div>
             </article>
             <div class="food-list-shadow"></div>
         </section>
-        <script>
-            $('.carousel-inner li').each(function(index, li) {
-                $(li).data('data-index', index);
-            });
-
-            var inner = $('.carousel-inner');
-            var offset = 74;
-
-            /**
-             * 处理滑动
-             */
-            function swipe(target, active) {
-                var index = target.data('data-index');
-                index = parseInt(index);
-                var currentIndex = active.data('data-index');
-                currentIndex = parseInt(currentIndex);
-
-                var position = inner.position();
-                var left = position.left;
-
-                if(index > currentIndex) {
-                    // 后面一张图片
-                    inner.css('-webkit-transform', 'translate3d(' + (left - offset) + 'px,0,0)');
-                    target.removeClass().addClass('carousel-active');
-                    target.next().removeClass().addClass('carousel-next');
-                    target.next().next().removeClass().addClass('carousel-last');
-                    active.removeClass().addClass('carousel-prev');
-                    active.prev().removeClass().addClass('carousel-first');
-                    active.prev().prev().removeClass();
-                } else {
-                    // 前面一张图片
-                    inner.css('-webkit-transform', 'translate3d(' + (left + offset) + 'px,0,0)');
-                    target.removeClass().addClass('carousel-active');
-                    target.prev().removeClass().addClass('carousel-prev');
-                    target.prev().prev().removeClass().addClass('carousel-fisrst');
-                    active.removeClass().addClass('carousel-next');
-                    active.next().removeClass().addClass('carousel-last');
-                    active.next().next().removeClass();
-                }
-
-            };
-
-            $('#carousel li').on('click', function(event) {
-                var target = $(this);
-                if(!(target.hasClass('carousel-prev') || target.hasClass('carousel-next'))) {
-                    return;
-                }
-                var active = $('.carousel-active');
-                swipe(target, active);
-            });
-
-            $('#carousel').on('swipeLeft', function(event) {
-                var active = $('.carousel-active');
-                var target = active.next();
-                if(target.length == 0) {
-                    return;
-                }
-                swipe(target, active);
-            });
-            $('#carousel').on('swipeRight', function(event) {
-                var active = $('.carousel-active');
-                var target = active.prev();
-                if(target.length == 0) {
-                    return;
-                }
-                swipe(target, active);
-            });
-        </script>
+        <script src="src/list.js"></script>
     </body>
 </html>
