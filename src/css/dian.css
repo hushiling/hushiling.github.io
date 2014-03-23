@@ -4,6 +4,14 @@ body {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpEOEY1MTk3NEE4MDcxMUUzQkFGNURDN0Q1MzhERDhGOSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpEOEY1MTk3NUE4MDcxMUUzQkFGNURDN0Q1MzhERDhGOSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjAxMzkwQjdGQTgwNzExRTNCQUY1REM3RDUzOEREOEY5IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjAxMzkwQjgwQTgwNzExRTNCQUY1REM3RDUzOEREOEY5Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+WSqf9wAAARRQTFRFhoiLeXt/homMdnl8eHp9hIeKgoSIhoiMh4iLd3p9iIqNdXh7en6BeXx/hIWJj5GTe36ChoeKeXt+eHp/eHt/dXh8jI2RdXd6d3l+ioyPenyAjI2QhYaJgISHeHt+i42PjI6TeXuAdnl9e36Bd3l9h4mMi42Qio2PgISIh4mNj5GUjI+SlZeZmJqdlZeakJKUfoGGjpGUfH+EiIuOjJCSlpeaoKKkfoGFiIyPoKOkenx/dnh8h4qNf4KIjZGTiYuOjZGUio2QgYSHfH+Di4yQioyQl5ibl5iahomNgYSIeXyAh4qOd3p+fICEe36Dio2Rm52hfYCFh4qMmJmdhYmMfoCFeHp+hYaKhYiLhYeKdnh7d3l8+vclbAAAAOdJREFUeNoEwQViwlAQBcCNJwQIMYK71N2Nurt82Xf/e3SGVp2m3sPD9Q+3zb7aAH0X/Oc4hsH6qMGpKWm/GKO6/IX5mcd4U5IKfVMNDY+9FmSNeEjNwMkxhl575bTEcKmmoN8rnWCbsdmQWUKfyEWkraAvzUPG5ZR+c7Gjda9ySh9AuUR0W61Hcxzjvnwh67szi8KeAoKJEk/AnRgl1IzQQVdhPeNFOba3aGoAVzHjXCnDtkovdDBBxdPI6tJM7WTgU0tjxcYAUjzTyBegNh5twFUzt2H5JwCFcVeza7KqWbTkY/gvwAAo/DHy9ARcegAAAABJRU5ErkJggg==);
 }
 
+.animate {
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
 .content-top {
     position: relative;
     width: 320px;
@@ -14,7 +22,7 @@ body {
     overflow: hidden;
     -webkit-mask-image: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 5%, rgba(0,0,0,1) 95%, rgba(0,0,0,0) 100%);
     position: relative;
-    margin: 6px auto 0;
+    margin: 20px auto 0;
 }
 
 .carousel-shadow {
@@ -31,25 +39,20 @@ body {
     position: relative;
     overflow: hidden;
     width: 5000px;
-    height: 167px;
-    -webkit-transition: all 0.5s ease-in-out;
-    -moz-transition: all 0.5s ease-in-out;
-    -o-transition: all 0.5s ease-in-out;
-    -ms-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
+    height: 198px;
 }
 
 #carousel ul li:first-child {
-    margin-left: 50px;
+    margin-left: 30px;
 }
 
 #carousel li {
-    width: 220px;
-    height: 167px;
+    width: 260px;
+    height: 198px;
     overflow: hidden;
     position: relative;
     float: left;
-    margin-left: -146px;
+    margin-left: -200px;
     opacity: 0;
     visibility: hidden;
     background: #fff;
@@ -108,8 +111,9 @@ li img {
 }
 
 .info {
+    width: 320px;
     height: 70px;
-    margin-top: 10px;
+    margin: 10px auto 0;
 }
 
 .info-tip {
@@ -142,6 +146,7 @@ li img {
     margin : 0 2px;
     padding: 6px 5px;
     text-align: center;
+    box-shadow: 0 8px 12px -6px #656769;
 }
 .info-tip-right{
     position: absolute;
@@ -192,11 +197,9 @@ li img {
 
 .content-bottom {
     margin-top: 20px;
-    position: relative;
 }
 
 .food-list-wrapper {
-    position: relative;
     margin: auto;
 }
 
@@ -254,22 +257,33 @@ li img {
 .item-drag {
     list-style: none;
     position: absolute;
-    opacity: .7;
     z-index: 1;
+}
+
+.item-drag li {
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
 
 .food-item {
     float: left;
-    width: 73px;
-    height: 60px;
-    overflow: hidden;
-    margin: 0 10px;
+    margin: 0 10px 8px;
     font-size: 10px;
+    position: relative;
+}
+
+.food-item-inner {
+    width: 73px;
+    height: 66px;
+    overflow: hidden;
 }
 
 .food-item img {
     width: 73px;
-    height: 40px;
+    height: 55px;
 }
 
 .food-item-name {
@@ -283,5 +297,22 @@ li img {
     text-align: center;
     padding: 10px 0 20px;
     color: #f44e27;
+    font-weight: bold;
+}
+
+.food-item .close {
+    display: block;
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    color: #fff;
+    background: #ec5a5f;
+    border: 1px solid #cb5045;
+    border-radius: 10px;
+    width: 10px;
+    height: 10px;
+    line-height: 11px;
+    overflow: hidden;
+    text-align: center;
     font-weight: bold;
 }
